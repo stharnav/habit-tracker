@@ -1,35 +1,25 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
+import { Tabs } from "expo-router";
+import Feather from '@expo/vector-icons/Feather';
 
-import { HapticTab } from '@/components/haptic-tab';
-import { IconSymbol } from '@/components/ui/icon-symbol';
-import { Colors } from '@/constants/theme';
-import { useColorScheme } from '@/hooks/use-color-scheme';
-
-export default function TabLayout() {
-  const colorScheme = useColorScheme();
-
-  return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
-        headerShown: false,
-        tabBarButton: HapticTab,
-      }}>
-      <Tabs.Screen
-        name="index"
-        options={{
-          title: 'Home',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
-        }}
-      />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
-    </Tabs>
-  );
+export default function TabsLayout() {
+  return (<>
+  <Tabs screenOptions={{tabBarActiveTintColor:"coral"}}>
+    <Tabs.Screen 
+      name="index" 
+      options={{ 
+        headerTitle: "Home Screen",
+        tabBarLabel: "Home",
+        tabBarIcon: ({color, size})=>(
+          <Feather name="home" color={color} size={size} />
+        )
+      }} 
+    />
+    <Tabs.Screen 
+      name="login" 
+      options={{ 
+        headerTitle: "Login Screen",
+      }} 
+    />
+  </Tabs>
+  </>);
 }
