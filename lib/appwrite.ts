@@ -9,3 +9,5 @@ client
 
 export const account = new Account(client);
 export const databases = new Databases(client);
+
+export const DB_ID = process.env.EXPO_PUBLIC_DB_ID;
